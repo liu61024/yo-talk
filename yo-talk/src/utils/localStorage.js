@@ -33,7 +33,7 @@ export const loadConversations = () => {
 const extractTimestampFromId = (id) => {
   const match = id.match(/^(\d{4})\.(\d{2})\.(\d{2})/); // 對應 YYYY.MM.DD
   if (match) {
-    const [_, year, month, day] = match;
+    const [, year, month, day] = match;
     return new Date(`${year}-${month}-${day}`).getTime();
   }
   return Date.now();
