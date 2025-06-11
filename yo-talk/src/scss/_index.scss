@@ -1,0 +1,40 @@
+.chat-input-wrapper {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.chat-messages {
+  flex-grow: 1;
+  overflow-y: auto;
+  margin-bottom: 16px;
+}
+
+.message {
+  display: flex;
+  width: 100%;
+  margin-bottom: 8px;
+}
+
+.user-msg {
+  margin-left: auto; // 推到右邊
+  padding: 10px;
+  border-radius: 12px;
+  max-width: 50%;
+  text-align: right;
+}
+
+.ai-msg {
+  margin-right: auto; // 推到左邊
+  padding: 10px;
+  border-radius: 12px;
+  max-width: 50%;
+  text-align: left;
+}
+
+@media (max-width: 992px) {
+  .user-msg,
+  .ai-msg {
+    max-width: 100%;
+  }
+}

@@ -1,18 +1,26 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 
 export default function ChatInput({ onSend, messages }) {
-  const [input, setInput] = useState("");
+  const [input, setInput] = useState(""); //控制輸入的訊息
+  const messagesEndRef = useRef(null); //捲到底
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!input.trim()) return;
-    onSend(input);
-    setInput("");
+    onSend(input); // 呼叫外層傳送
+    setInput(""); // 清空
   };
 
+  useEffect(() => {
+    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+  }, [messages]);
+
   return (
-    <div className="d-flex flex-column p-3" style={{ height: "100%" }}>
-      <div className="flex-grow-1 overflow-auto mb-3">
+    <div
+      className="d-flex flex-column p-3 chat-input-wrapper"
+      style={{ height: "100%" }}
+    >
+      <div className="chat-messages">
         {messages.map((msg, idx) => (
           <div
             key={idx}
@@ -31,10 +39,11 @@ export default function ChatInput({ onSend, messages }) {
                 ? msg.content.text
                 : msg.content}
             </div>
-          </div>
+            <div ref={messagesEndRef} />
+          </div> //Gemini API處理訊息格式不一致
         ))}
       </div>
-      <form onSubmit={handleSubmit} className="d-flex">
+      <form onSubmit={handleSubmit} className="d-flex  p-3 border-top">
         <input
           type="text"
           className="form-control me-2"

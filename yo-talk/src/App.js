@@ -9,8 +9,8 @@ import "bootstrap/dist/js/bootstrap.bundle.min";
 import "./App.css";
 
 function App() {
-  const [conversations, setConversations] = useState({});
-  const [currentId, setCurrentId] = useState("");
+  const [conversations, setConversations] = useState({}); //管對話
+  const [currentId, setCurrentId] = useState(""); //管現在聊天
 
   const handleRenameChat = (oldId, newId) => {
     if (!newId || newId === oldId || conversations[newId]) return;
@@ -27,7 +27,7 @@ function App() {
     const stored = loadConversations();
     setConversations(stored);
     setCurrentId(Object.keys(stored)[0] || "");
-  }, []);
+  }, []); //從 localStorage找對話
 
   const handleNewChat = () => {
     const now = new Date();
@@ -47,28 +47,28 @@ function App() {
 
   const handleSelectChat = (id) => {
     setCurrentId(id);
-  };
+  }; //建立新對話跳過去
 
   const handleSend = async (text) => {
-    const history = conversations[currentId]?.messages || [];
-    const userMessage = { role: "user", content: text };
+    const history = conversations[currentId]?.messages || []; //拿歷史訊息
+    const userMessage = { role: "user", content: text }; //字包訊息物件角色user
     const aiText = await sendMessageToAI(
       text,
       history.map((m) => ({
         role: m.role,
         parts: [{ text: m.content }],
       }))
-    );
+    ); //透過sendMessageToAI文字傳給 AI
     const aiMessage = { role: "model", content: aiText };
     const updated = {
       ...conversations,
       [currentId]: {
         ...conversations[currentId],
         messages: [...history, userMessage, aiMessage],
-      },
+      }, //更新整個對話的訊息
     };
-    setConversations(updated);
-    saveConversations(updated);
+    setConversations(updated); //更新畫面渲染
+    saveConversations(updated); //存對話
   };
 
   const toggleSidebar = () => {
@@ -77,11 +77,11 @@ function App() {
       window.bootstrap.Offcanvas.getInstance(offcanvasElement) ||
       new window.bootstrap.Offcanvas(offcanvasElement);
     bsOffcanvas.toggle();
-  };
+  }; //控制開關
 
   return (
     <div className="d-flex vh-100 overflow-hidden">
-      {/* 桌面版 sidebar 固定寬度 */}
+      {/* 電腦版sidebar固定寬度*/}
       <div
         className="d-none d-md-block flex-shrink-0 border-end"
         style={{ width: "25%" }}
@@ -95,7 +95,7 @@ function App() {
         />
       </div>
 
-      {/* 手機版 sidebar - Bootstrap Offcanvas */}
+      {/* 手機版sidebar開闔*/}
       <div
         className="offcanvas offcanvas-start d-md-none"
         tabIndex="-1"
@@ -124,8 +124,8 @@ function App() {
         </div>
       </div>
 
-      {/* 主畫面 */}
-      <div className="flex-grow-1 d-flex flex-column" style={{ width: "100%" }}>
+      {/* 對話視窗 */}
+      <div className=" vh-100 d-flex flex-column" style={{ width: "100%" }}>
         <ChatHeader current={currentId} toggleSidebar={toggleSidebar} />
         <ChatInput
           messages={conversations[currentId]?.messages || []}
