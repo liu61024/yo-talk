@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/liu61024/yo-talk/static/css/main.84189c27.css",
-    "main.js": "/liu61024/yo-talk/static/js/main.4a701dd2.js",
-    "static/js/453.02d3a6e6.chunk.js": "/liu61024/yo-talk/static/js/453.02d3a6e6.chunk.js",
-    "static/media/bootstrap-icons.woff?": "/liu61024/yo-talk/static/media/bootstrap-icons.1295669cd4e305c97f2c.woff",
-    "static/media/bootstrap-icons.woff2?": "/liu61024/yo-talk/static/media/bootstrap-icons.92ea18a81d737146ff04.woff2",
-    "index.html": "/liu61024/yo-talk/index.html",
-    "main.84189c27.css.map": "/liu61024/yo-talk/static/css/main.84189c27.css.map",
-    "main.4a701dd2.js.map": "/liu61024/yo-talk/static/js/main.4a701dd2.js.map",
-    "453.02d3a6e6.chunk.js.map": "/liu61024/yo-talk/static/js/453.02d3a6e6.chunk.js.map"
+    "main.css": "/yo-talk/static/css/main.9e561f81.css",
+    "main.js": "/yo-talk/static/js/main.f7b01c52.js",
+    "static/js/453.02d3a6e6.chunk.js": "/yo-talk/static/js/453.02d3a6e6.chunk.js",
+    "static/media/bootstrap-icons.woff?": "/yo-talk/static/media/bootstrap-icons.1295669cd4e305c97f2c.woff",
+    "static/media/bootstrap-icons.woff2?": "/yo-talk/static/media/bootstrap-icons.92ea18a81d737146ff04.woff2",
+    "index.html": "/yo-talk/index.html",
+    "main.9e561f81.css.map": "/yo-talk/static/css/main.9e561f81.css.map",
+    "main.f7b01c52.js.map": "/yo-talk/static/js/main.f7b01c52.js.map",
+    "453.02d3a6e6.chunk.js.map": "/yo-talk/static/js/453.02d3a6e6.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.84189c27.css",
-    "static/js/main.4a701dd2.js"
+    "static/css/main.9e561f81.css",
+    "static/js/main.f7b01c52.js"
   ]
 }
