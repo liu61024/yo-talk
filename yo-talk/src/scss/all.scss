@@ -1,0 +1,41 @@
+@import "~bootstrap/scss/functions";
+
+// 2. 你自訂的變數（一定要在 bootstrap 變數檔案之前）
+@import "./variables"; // 自訂 $theme-colors 等
+@import "./variables-dark"; // 如果有
+
+// 3. Bootstrap 的預設變數與其餘元件
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/mixins";
+@import "~bootstrap/scss/bootstrap"; // 最後再載入全部
+
+//
+
+.message {
+  display: flex;
+  width: 100%;
+  margin-bottom: 8px;
+}
+
+.user-msg {
+  margin-left: auto; // 推到右邊
+  padding: 10px;
+  border-radius: 12px;
+  max-width: 50%;
+  text-align: right;
+}
+
+.ai-msg {
+  margin-right: auto; // 推到左邊
+  padding: 10px;
+  border-radius: 12px;
+  max-width: 50%;
+  text-align: left;
+}
+
+@media (max-width: 992px) {
+  .user-msg,
+  .ai-msg {
+    max-width: 100%;
+  }
+}
