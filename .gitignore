@@ -1,0 +1,8 @@
+# 前端
+yo-talk/node_modules/
+yo-talk/build/
+yo-talk/.env
+
+# 後端
+yo-talk-server/node_modules/
+yo-talk-server/.env
