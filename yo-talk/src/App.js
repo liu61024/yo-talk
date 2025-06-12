@@ -103,8 +103,11 @@ function App() {
         aria-labelledby="sidebarOffcanvasLabel"
       >
         <div className="offcanvas-header">
-          <h5 className="offcanvas-title" id="sidebarOffcanvasLabel">
-            聊了什麼話題
+          <h5
+            className="offcanvas-title text-center text-primary fw-bold"
+            id="sidebarOffcanvasLabel"
+          >
+            Yo Talk
           </h5>
           <button
             type="button"

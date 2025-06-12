@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
+import ReactMarkdown from "react-markdown";
 
 export default function ChatInput({ onSend, messages }) {
   const [input, setInput] = useState(""); //控制輸入的訊息
@@ -35,9 +36,11 @@ export default function ChatInput({ onSend, messages }) {
                   : "bg-primary text-white"
               }`}
             >
-              {typeof msg.content === "object" && msg.content !== null
-                ? msg.content.text
-                : msg.content}
+              <ReactMarkdown>
+                {typeof msg.content === "object" && msg.content !== null
+                  ? msg.content.text
+                  : msg.content}
+              </ReactMarkdown>
             </div>
             <div ref={messagesEndRef} />
           </div> //Gemini API處理訊息格式不一致
