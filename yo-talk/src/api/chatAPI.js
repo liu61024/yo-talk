@@ -4,7 +4,7 @@ const API_URL = "https://yo-talk-server.onrender.com/api/chat";
 
 export const sendMessageToAI = async (message) => {
   try {
-    const response = await axios.post("API_URL", {
+    const response = await axios.post(API_URL, {
       //發送請求到後端
       message,
     });
